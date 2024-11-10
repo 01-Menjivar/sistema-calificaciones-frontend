@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Administrador</title>
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <h1>Sistema de calificaciones en línea</h1>
+    </header>
+
+    <nav class="sidebar">
+        <ul class="nav-list">
+            <li><a href="#todos" class="nav-link" data-view="all"><i class="fas fa-home"></i>Dashboard</a></li>
+            <li><a href="#profesores" class="nav-link" data-view="profesor"><i class="fas fa-chalkboard-teacher"></i>Profesores</a></li>
+            <li><a href="#estudiantes" class="nav-link" data-view="estudiante"><i class="fas fa-user-graduate"></i>Estudiantes</a></li>
+            <li><a href="/views/landing.html" class="logout"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <div class="dashboard-grid">
+            <!-- Tarjetas de resumen -->
+            <div class="summary-cards">
+                <div class="card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Total Profesores</h3>
+                    <p class="count">0</p>
+                </div>  
+                <div class="card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Total Estudiantes</h3>
+                    <p class="count">0</p>
+                </div>
+            </div>
+
+            <!-- Sección de gestión de usuarios -->
+            <section class="management-section">
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                    <button class="btn-primary" id="addUserBtn">
+                        <i class="fas fa-plus"></i> Agregar Usuario
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Rol</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Se llenará dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para agregar/editar usuario -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Agregar Usuario</h2>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="userName">Nombre completo:</label>
+                    <input type="text" id="userName" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Correo electrónico:</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPassword">Contraseña:</label>
+                    <input type="password" id="userPassword" required>
+                </div>
+                <div class="form-group" id="rolGroup">
+                    <label for="userRole">Rol:</label>
+                    <select id="userRole" required>
+                        <option value="profesor">Profesor</option>
+                        <option value="estudiante">Estudiante</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Guardar</button>
+                    <button type="button" class="btn-secondary" id="cancelBtn">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/js/dashboard.js"></script>
+</body>
+</html>

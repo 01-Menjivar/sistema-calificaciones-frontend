@@ -1,0 +1,22 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDEs y editores
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de caché del navegador
+*.log
+*.cache
+
+# Archivos temporales
+*.tmp
+*~
+
+# Si decides usar algún gestor de paquetes frontend en el futuro
+/node_modules
+package-lock.json
+yarn.lock

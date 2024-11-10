@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Calificaciones</title>
+    <link rel="stylesheet" href="/public/css/login.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Sistema de calificaciones en línea</h1>
+    </header>
+    <div class="container">
+        <div class="login-box">
+            <h2>Iniciar Sesión</h2>
+            
+            
+            <div id="error-message" class="error-message"></div>
+            
+            <form id="loginForm" novalidate>
+                <div class="input-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        autocomplete="email">
+                    <span class="error-text" id="email-error"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-container">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            required 
+                            autocomplete="current-password">
+                        <button type="button" id="togglePassword" class="toggle-password">
+                            👁️
+                        </button>
+                    </div>
+                    <span class="error-text" id="password-error"></span>
+                </div>
+
+                <button type="submit" class="login-button">
+                    Iniciar Sesión
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/public/js/auth.js"></script>
+</body>
+</html>
