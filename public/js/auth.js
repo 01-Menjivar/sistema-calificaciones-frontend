@@ -238,6 +238,9 @@ class Auth {
         sessionStorage.removeItem('userInfo');
         window.location.href = '/views/login.html';
     }
+
+    
+
 }
 
 
