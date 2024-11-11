@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '{}');
 
     if (!token || userInfo.rol !== 'director') {
-        window.location.href = '/login.html';
+        window.location.href = '/src/views/login.html';
         return;
     }
 
