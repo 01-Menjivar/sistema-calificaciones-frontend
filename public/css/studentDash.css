@@ -1,0 +1,138 @@
+/* studentDash.css */
+:root {
+    --primary-color: #4a90e2;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --gray-light: #f8f9fa;
+    --gray-dark: #343a40;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+.content {
+    padding: 2rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.average-section {
+    text-align: center;
+}
+
+.average-section i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.average-section h3 {
+    margin: 0.5rem 0;
+    color: var(--gray-dark);
+}
+
+.average {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0.5rem 0;
+}
+
+.grades-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    color: var(--gray-dark);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.average-row {
+    background-color: #f8f9fa;
+    border-top: 2px solid #dee2e6;
+}
+
+.status-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: var(--gray-light);
+    font-weight: 600;
+}
+
+td {
+    color: var(--gray-dark);
+}
+
+.grade {
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+.status-badge {
+    padding: 0.25em 0.75em;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-pending {
+    background-color: var(--warning-color);
+    color: #000;
+}
+
+.status-graded {
+    background-color: var(--success-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+
+    th, td {
+        padding: 0.75rem;
+    }
+}

@@ -1,23 +1,23 @@
-/* Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #f5f7fa;
     min-height: 100vh;
     padding-top: 60px;
-}
-
-.main-header {
+  }
+  
+  /* Header */
+  .main-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* Altura fija para el header */
+    height: 60px;
     background-color: #000;
     color: white;
     padding: 0 1rem;
@@ -26,32 +26,32 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-.main-header.shifted {
+  }
+  
+  .main-header.shifted {
     left: 250px;
     width: calc(100% - 250px);
-}
-
-.main-header h1 {
+  }
+  
+  .main-header h1 {
     margin-left: 20px;
     font-size: 1.5rem;
     font-weight: 500;
-}
-
-.menu-toggle {
+  }
+  
+  .menu-toggle {
     cursor: pointer;
     font-size: 1.5rem;
     padding: 0.5rem;
     transition: transform 0.3s;
-}
-
-.menu-toggle:hover {
+  }
+  
+  .menu-toggle:hover {
     transform: scale(1.1);
-}
-
-.sidebar {
+  }
+  
+  /* Sidebar */
+  .sidebar {
     position: fixed;
     top: 0;
     left: -250px;
@@ -62,113 +62,112 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 900;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-}
-
-.sidebar.active {
+  }
+  
+  .sidebar.active {
     left: 0;
     box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-}
-
-.nav-list {
+  }
+  
+  .nav-list {
     list-style: none;
     padding: 0;
-}
-
-.nav-list a {
+  }
+  
+  .nav-list a {
     display: flex;
     align-items: center;
     padding: 15px 20px;
     color: #fff;
     text-decoration: none;
     transition: background 0.2s;
-}
-
-.nav-list a:hover {
+  }
+  
+  .nav-list a:hover {
     background: #34495e;
-}
-
-.nav-list a i {
+  }
+  
+  .nav-list a i {
     width: 25px;
     margin-right: 10px;
-}
-
-/* Content Area */
-.content {
+  }
+  
+  /* Content Area */
+  .content {
     margin-left: 0;
     padding: 20px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
-    min-height: calc(100vh - 60px); /* Altura mínima considerando el header */
-}
-
-.content.shifted {
+    min-height: calc(100vh - 60px);
+  }
+  
+  .content.shifted {
     margin-left: 250px;
     width: calc(100% - 250px);
-}
-
-
-/* Dashboard Grid */
-.dashboard-grid {
+  }
+  
+  /* Dashboard Grid */
+  .dashboard-grid {
     display: grid;
     gap: 2rem;
-}
-
-/* Summary Cards */
-.summary-cards {
+  }
+  
+  /* Summary Cards */
+  .summary-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.card {
+  }
+  
+  .card {
     background: white;
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
     transition: transform 0.2s;
-}
-
-.card:hover {
+  }
+  
+  .card:hover {
     transform: translateY(-5px);
-}
-
-.card i {
+  }
+  
+  .card i {
     font-size: 2.5rem;
     color: #2c3e50;
     margin-bottom: 1rem;
-}
-
-.card h3 {
+  }
+  
+  .card h3 {
     color: #666;
     font-size: 1rem;
     margin-bottom: 0.5rem;
-}
-
-.card .count {
+  }
+  
+  .card .count {
     font-size: 2rem;
     font-weight: bold;
     color: #2c3e50;
-}
-
-/* Management Section */
-.management-section {
+  }
+  
+  /* Management Section */
+  .management-section {
     background: white;
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.section-header {
+  }
+  
+  .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
-}
-
-/* Buttons */
-.btn-primary {
+  }
+  
+  /* Buttons */
+  .btn-primary {
     background: #2c3e50;
     color: white;
     border: none;
@@ -179,22 +178,22 @@ body {
     align-items: center;
     gap: 0.5rem;
     transition: background 0.2s;
-}
-
-.btn-primary:hover {
+  }
+  
+  .btn-primary:hover {
     background: #34495e;
-}
-
-.btn-secondary {
+  }
+  
+  .btn-secondary {
     background: #6c757d;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.btn-save-grade {
+  }
+  
+  .btn-save-grade {
     background: #28a745;
     color: white;
     border: none;
@@ -202,69 +201,69 @@ body {
     border-radius: 3px;
     cursor: pointer;
     font-size: 0.9rem;
-}
-
-.btn-save-grade:hover {
+  }
+  
+  .btn-save-grade:hover {
     background: #218838;
-}
-
-/* Tables */
-.table-container {
+  }
+  
+  /* Tables */
+  .table-container {
     overflow-x: auto;
     margin-top: 1rem;
-}
-
-table {
+  }
+  
+  table {
     width: 100%;
     border-collapse: collapse;
-}
-
-th, td {
+  }
+  
+  th, td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #eee;
-}
-
-th {
+  }
+  
+  th {
     background: #f8f9fa;
     font-weight: 600;
-}
-
-tr:hover {
+  }
+  
+  tr:hover {
     background: #f8f9fa;
-}
-
-/* Badges */
-.badge {
+  }
+  
+  /* Badges */
+  .badge {
     padding: 0.25rem 0.5rem;
     border-radius: 15px;
     font-size: 0.85rem;
-}
-
-.badge-success {
+  }
+  
+  .badge-success {
     background: #d4edda;
     color: #155724;
-}
-
-.badge-warning {
+  }
+  
+  .badge-warning {
     background: #fff3cd;
     color: #856404;
-}
-
-/* Task Title (clickable) */
-.task-title {
+  }
+  
+  /* Task Title (clickable) */
+  .task-title {
     color: #2c3e50;
     cursor: pointer;
     transition: color 0.2s;
-}
-
-.task-title:hover {
+  }
+  
+  .task-title:hover {
     color: #34495e;
     text-decoration: underline;
-}
-
-/* Modals */
-.modal {
+  }
+  
+  /* Modals */
+  .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -273,9 +272,9 @@ tr:hover {
     height: 100%;
     background: rgba(0,0,0,0.5);
     z-index: 1000;
-}
-
-.modal-content {
+  }
+  
+  .modal-content {
     background: white;
     width: 90%;
     max-width: 500px;
@@ -283,143 +282,145 @@ tr:hover {
     padding: 2rem;
     border-radius: 10px;
     position: relative;
-}
-
-.modal-lg {
+  }
+  
+  .modal-lg {
     max-width: 800px;
-}
-
-.close-modal {
+  }
+  
+  .close-modal {
     position: absolute;
     right: 1rem;
     top: 1rem;
     font-size: 1.5rem;
     cursor: pointer;
     color: #666;
-}
-
-.close-modal:hover {
+  }
+  
+  .close-modal:hover {
     color: #000;
-}
-
-/* Form Styles */
-.form-group {
+  }
+  
+  /* Form Styles */
+  .form-group {
     margin-bottom: 1rem;
-}
-
-.form-group label {
+  }
+  
+  .form-group label {
     display: block;
     margin-bottom: 0.5rem;
     color: #333;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
-}
-
-.form-group textarea {
+  }
+  
+  .form-group textarea {
     resize: vertical;
     min-height: 100px;
-}
-
-.grade-input {
+  }
+  
+  .grade-input {
     width: 80px;
     padding: 0.25rem;
     border: 1px solid #ddd;
     border-radius: 3px;
     text-align: center;
-}
-
-.form-actions {
+  }
+  
+  .form-actions {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
     margin-top: 1.5rem;
-}
-
-/* Task Info in Grades Modal */
-.task-info {
+  }
+  
+  /* Task Info in Grades Modal */
+  .task-info {
     background: #f8f9fa;
     padding: 1rem;
     border-radius: 5px;
     margin-bottom: 1.5rem;
-}
-
-.task-info h3 {
+  }
+  
+  .task-info h3 {
     color: #2c3e50;
     margin-bottom: 0.5rem;
-}
-
-.task-info p {
+  }
+  
+  .task-info p {
     color: #666;
     margin-bottom: 1rem;
-}
-
-.task-details {
+  }
+  
+  .task-details {
     display: flex;
     gap: 1.5rem;
     color: #666;
     font-size: 0.9rem;
-}
-
-/* Action Buttons in Table */
-td .btn-edit,
-td .btn-delete {
+  }
+  
+  /* Action Buttons in Table */
+  td .btn-edit,
+  td .btn-delete {
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.25rem;
     margin: 0 0.25rem;
     transition: transform 0.2s;
-}
-
-td .btn-edit:hover,
-td .btn-delete:hover {
+  }
+  
+  td .btn-edit:hover,
+  td .btn-delete:hover {
     transform: scale(1.2);
-}
-
-td .btn-edit i {
+  }
+  
+  td .btn-edit i {
     color: #2c3e50;
-}
-
-td .btn-delete i {
+  }
+  
+  td .btn-delete i {
     color: #dc3545;
-}
-
-.badge {
+  }
+  
+  /* Badges */
+  .badge {
     padding: 0.25em 0.5em;
     border-radius: 0.25rem;
     font-size: 0.875em;
     font-weight: 600;
-}
-
-.badge-success {
+  }
+  
+  .badge-success {
     background-color: #28a745;
     color: white;
-}
-
-.badge-warning {
+  }
+  
+  .badge-warning {
     background-color: #ffc107;
     color: #212529;
-}
-
-.badge-danger {
+  }
+  
+  .badge-danger {
     background-color: #dc3545;
     color: white;
-}
-
-.badge-primary {
+  }
+  
+  .badge-primary {
     background-color: #007bff;
     color: white;
-}
-
-.actions button {
+  }
+  
+  /* Actions */
+  .actions button {
     padding: 0.25rem 0.5rem;
     margin: 0 0.125rem;
     border: none;
@@ -427,32 +428,34 @@ td .btn-delete i {
     background: none;
     cursor: pointer;
     transition: all 0.2s;
-}
-
-.btn-view {
+  }
+  
+  .btn-view {
     color: #17a2b8;
-}
-
-.btn-grades {
+  }
+  
+  .btn-grades {
     color: #6f42c1;
-}
-
-.btn-edit {
+  }
+  
+  .btn-edit {
     color: #ffc107;
-}
-
-.btn-delete {
+  }
+  
+  .btn-delete {
     color: #dc3545;
-}
-
-.grade-input {
+  }
+  
+  /* Grade Input */
+  .grade-input {
     width: 80px;
     padding: 0.25rem;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
-}
-
-.notification {
+  }
+  
+  /* Notification */
+  .notification {
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -461,48 +464,142 @@ td .btn-delete i {
     color: white;
     z-index: 1000;
     animation: slideIn 0.3s ease-out;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-control.is-invalid {
+  }
+  
+  /* Form Validation */
+  .form-group.is-invalid .form-control {
     border-color: #dc3545;
     padding-right: calc(1.5em + 0.75rem);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right calc(0.375em + 0.1875rem) center;
     background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-}
-
-.invalid-feedback {
+  }
+  
+  .invalid-feedback {
     display: none;
     width: 100%;
     margin-top: 0.25rem;
     font-size: 0.875em;
     color: #dc3545;
-}
-
-.was-validated .form-control:invalid ~ .invalid-feedback {
+  }
+  
+  .was-validated .form-control:invalid ~ .invalid-feedback {
     display: block;
-}
-
-.form-text {
+  }
+  
+  .form-text {
     color: #6c757d;
     font-size: 0.875em;
+  }
+  
+  /* Grade Input */
+  .grade-input {
+    width: 80px;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .grade-input:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+  
+  .btn-save-grade {
+    padding: 0.375rem 0.75rem;
+    background-color: #28a745;
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  .btn-save-grade:hover {
+    background-color: #218838;
+  }
+  
+  .btn-save-grade:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  .grade {
+    font-weight: 600;
+    color: #28a745;
+  }
+  
+  /* Grades Modal */
+  #gradesModal .task-info {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  #gradesModal .task-meta {
+    display: flex;
+    gap: 1rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+  }
+  
+  #studentsTable {
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  #studentsTable th,
+  #studentsTable td {
+    padding: 0.75rem;
+    vertical-align: middle;
+  }
+
+  .estado-select {
+    padding: 6px 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 0.9rem;
+    width: 120px;
 }
 
-@keyframes slideIn {
+.estado-select:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.estado-select option {
+    padding: 8px;
+}
+
+/* Colores según el estado */
+.estado-select[value="pendiente"] {
+    color: #ffc107;
+}
+
+.estado-select[value="entregado"] {
+    color: #28a745;
+}
+
+
+  
+  
+  /* Animations */
+  @keyframes slideIn {
     from {
-        transform: translateX(100%);
-        opacity: 0;
+      transform: translateX(100%);
+      opacity: 0;
     }
     to {
-        transform: translateX(0);
-        opacity: 1;
+      transform: translateX(0);
+      opacity: 1;
     }
-}
+  }
 
 /* Responsive Design */
 @media (max-width: 768px) {

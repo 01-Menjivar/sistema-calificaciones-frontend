@@ -146,7 +146,7 @@ class Auth {
         const redirectMap = {
             'director': 'dashSadmin.html',
             'profesor': 'professorDash.html',
-            'estudiante': 'estudiante.html'
+            'estudiante': 'studentDashboard.html'
         };
         
         const redirectUrl = redirectMap[rol] || 'landing.html';

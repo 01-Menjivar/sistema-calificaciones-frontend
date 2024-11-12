@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Estudiante</title>
+    <link rel="stylesheet" href="/public/css/studentDash.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main class="content">
+        <div class="dashboard-grid">
+            <div class="summary-card">
+                <div class="average-section">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Promedio General</h3>
+                    <p id="average" class="average">--</p>
+                </div>
+            </div>
+
+            <section class="grades-section">
+                <div class="section-header">
+                    <h2>Mis Calificaciones</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table id="gradesTable">
+                        <thead>
+                            <tr>
+                                <th>Tarea</th>
+                                <th>Ponderación</th>
+                                <th>Calificación</th>
+                                <th>Fecha Calificación</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/public/js/utils/UiManager.js"></script>
+    <script src="/public/js/services/ApiService.js"></script>
+    <script src="/public/js/student-dashboard.js"></script>
+</body>
+</html>

@@ -169,6 +169,28 @@
     </div>
 </div>
 
-    <script src="/public/js/profesor-dashboard.js"></script>
+<div class="modal" id="submissionsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Entregas de la Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- El contenido se insertará dinámicamente -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/public/js/utils/UiManager.js"></script>
+<script src="/public/js/services/ApiService.js"></script>
+
+<!-- Luego cargar los managers -->
+<script src="/public/js/managers/GradeManager.js"></script>
+<script src="/public/js/managers/TaskManager.js"></script>
+
+<!-- Finalmente, el script principal -->
+<script src="/public/js/profesor-dashboard.js"></script>
 </body>
 </html>
