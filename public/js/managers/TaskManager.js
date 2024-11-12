@@ -165,6 +165,7 @@ class TaskManager {
         }
     }
 
+
     validatePonderacion(e) {
         let value = parseFloat(e.target.value);
         if (value < 0) e.target.value = 0;
@@ -187,12 +188,54 @@ class TaskManager {
         };
     }
 
-    renderTasksTable() {
+    async renderTasksTable() {
         const tbody = document.querySelector('#tasksTable tbody');
         if (!tbody) return;
+    
+        try {
+            // Procesar cada tarea para obtener su estado actual
+            const processedTasks = await Promise.all(this.tasks.map(async (task) => {
+                const currentStatus = await this.getTaskStatus(task);
+                return { ...task, estado: currentStatus };
+            }));
+    
+            tbody.innerHTML = processedTasks.map(task => this.createTaskRow(task)).join('');
+            this.updateCounters();
+        } catch (error) {
+            console.error('Error al renderizar la tabla:', error);
+            UiManager.showNotification('Error al actualizar la tabla de tareas', 'error');
+        }
+    }
 
-        tbody.innerHTML = this.tasks.map(task => this.createTaskRow(task)).join('');
-        this.updateCounters();
+    async getTaskStatus(task) {
+        try {
+            const submissions = await this.api.getTaskSubmissions(task.id);
+            const students = await this.api.getStudents();
+            
+            if (!submissions || !students || students.length === 0) {
+                return 'pendiente';
+            }
+    
+            const allSubmitted = students.every(student => {
+                const submission = submissions.find(s => s.estudiante_id === student.id);
+                return submission && submission.calificacion !== null;
+            });
+    
+            return allSubmitted ? 'entregado' : 'pendiente';
+        } catch (error) {
+            console.error('Error al obtener estado de la tarea:', error);
+            return 'pendiente';
+        }
+    }
+    
+    getTaskStatusClass(task) {
+        const status = task.estado || 'pendiente';
+        return status === 'entregado' ? 'badge-success' : 'badge-warning';
+    }
+    
+    getTaskStatusText(task) {
+        const status = task.estado || 'pendiente';
+        return status.charAt(0).toUpperCase() + status.slice(1);
     }
 
     createTaskRow(task) {
@@ -207,8 +250,8 @@ class TaskManager {
                     </span>
                 </td>
                 <td>
-                    <span class="badge ${task.estado === 'pendiente' ? 'badge-warning' : 'badge-success'}">
-                        ${task.estado || 'Pendiente'}
+                    <span class="badge ${this.getTaskStatusClass(task)}">
+                        ${this.getTaskStatusText(task)}
                     </span>
                 </td>
                 <td class="actions">

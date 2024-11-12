@@ -317,6 +317,7 @@ class GradeManager {
             if (input && input.isConnected) {
                 input.disabled = false;
             }
+
         }
     }
 

@@ -47,12 +47,17 @@ class ApiService {
         return data || [];
     }
 
+    
     async getTaskSubmissions(taskId) {
+    try {
         const response = await this.fetchWithAuth(`/api/task-submissions/${taskId}`);
-        if (!response?.ok) return [];
-        const data = await response.json();
-        return data || [];
+        if (!response.ok) throw new Error('Error al obtener entregas');
+        return await response.json();
+    } catch (error) {
+        console.error('Error en getTaskSubmissions:', error);
+        return [];
     }
+}
 
     async createTask(taskData) {
         const response = await this.fetchWithAuth('/api/assign-task', {
