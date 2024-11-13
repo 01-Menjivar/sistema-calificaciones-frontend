@@ -1,3 +1,6 @@
+import { SERVER_IP } from "../utils/Config.js"
+
+
 class Auth {
     constructor() {
         this.form = document.getElementById('loginForm');
@@ -169,7 +172,7 @@ class Auth {
             this.showLoading();
             this.hideError(this.errorMessage);
 
-            const response = await fetch('http://localhost:3000/api/login', {
+            const response = await fetch(`http://${SERVER_IP}/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

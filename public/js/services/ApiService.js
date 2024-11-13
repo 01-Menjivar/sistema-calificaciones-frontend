@@ -1,5 +1,10 @@
+
+
+import { SERVER_IP } from "../utils/Config.js"
+
 class ApiService {
-    constructor(baseUrl = 'http://localhost:3000') {
+    
+    constructor(baseUrl = `http://${SERVER_IP}:3000`) {
         this.baseUrl = baseUrl;
         this.token = localStorage.getItem('token');
     }
@@ -47,17 +52,17 @@ class ApiService {
         return data || [];
     }
 
-    
+
     async getTaskSubmissions(taskId) {
-    try {
-        const response = await this.fetchWithAuth(`/api/task-submissions/${taskId}`);
-        if (!response.ok) throw new Error('Error al obtener entregas');
-        return await response.json();
-    } catch (error) {
-        console.error('Error en getTaskSubmissions:', error);
-        return [];
+        try {
+            const response = await this.fetchWithAuth(`/api/task-submissions/${taskId}`);
+            if (!response.ok) throw new Error('Error al obtener entregas');
+            return await response.json();
+        } catch (error) {
+            console.error('Error en getTaskSubmissions:', error);
+            return [];
+        }
     }
-}
 
     async createTask(taskData) {
         const response = await this.fetchWithAuth('/api/assign-task', {
@@ -82,11 +87,11 @@ class ApiService {
         return response?.ok;
     }
 
-    
+
     async saveGrade(gradeData) {
         try {
             console.log('Enviando calificación:', gradeData);
-            
+
             const response = await this.fetchWithAuth('/api/professor/add-grade', {
                 method: 'POST',
                 headers: {
@@ -94,14 +99,14 @@ class ApiService {
                 },
                 body: JSON.stringify(gradeData)
             });
-    
+
             if (!response) {
                 throw new Error('No se recibió respuesta del servidor');
             }
-    
+
             const data = await response.json();
             console.log('Respuesta del servidor:', data);
-    
+
             return {
                 ok: response.ok,
                 data: data
@@ -124,3 +129,5 @@ class ApiService {
     }
 
 }
+
+export default ApiService;

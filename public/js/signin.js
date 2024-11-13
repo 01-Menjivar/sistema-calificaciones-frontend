@@ -1,3 +1,6 @@
+import { SERVER_IP } from "../utils/Config.js"
+
+
 class Register {
     constructor() {
         this.form = document.getElementById('registerForm');
@@ -162,7 +165,7 @@ class Register {
             this.showLoading();
             this.hideError(this.errorMessage);
 
-            const response = await fetch('http://localhost:3000/api/register', {
+            const response = await fetch(`http://${SERVER_IP}:3000/api/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

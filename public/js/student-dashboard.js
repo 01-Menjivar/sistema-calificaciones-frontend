@@ -23,7 +23,7 @@ class StudentDashboard {
     async loadGrades() {
         try {
             const response = await this.api.fetchWithAuth(`/api/grades/student/${this.userInfo.id}`);
-            
+
             if (!response || !response.ok) {
                 throw new Error('Error al cargar calificaciones');
             }
@@ -62,12 +62,12 @@ class StudentDashboard {
         if (!dateString) return '-';
         try {
             const date = new Date(dateString);
-            return date instanceof Date && !isNaN(date) 
+            return date instanceof Date && !isNaN(date)
                 ? date.toLocaleDateString('es-ES', {
                     year: 'numeric',
                     month: 'long',
                     day: 'numeric'
-                  })
+                })
                 : '-';
         } catch {
             return '-';
@@ -76,7 +76,7 @@ class StudentDashboard {
 
     calculateCurrentAverage() {
         if (!this.grades.length) return '-';
-        
+
         let totalWeight = 0;
         let weightedSum = 0;
         let totalGrades = 0;
@@ -85,7 +85,7 @@ class StudentDashboard {
             if (grade.calificacion !== null && grade.calificacion !== undefined) {
                 const calificacion = parseFloat(grade.calificacion);
                 const ponderacion = parseFloat(grade.ponderacion);
-                
+
                 if (!isNaN(calificacion) && !isNaN(ponderacion)) {
                     weightedSum += calificacion * (ponderacion / 100);
                     totalWeight += ponderacion;

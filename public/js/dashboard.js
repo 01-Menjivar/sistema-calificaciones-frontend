@@ -1,3 +1,7 @@
+
+import { SERVER_IP } from "../utils/Config.js"
+
+
 document.addEventListener('DOMContentLoaded', () => {
     // Verificar autenticación
     const token = localStorage.getItem('token');
@@ -82,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadUsers() {
         try {
             console.log('Iniciando carga de usuarios');
-            const response = await fetchWithAuth('http://localhost:3000/api/listusers');
+            const response = await fetchWithAuth(`http://${SERVER_IP}:3000/api/listusers`);
             
             if (!response) {
                 console.log('No se recibió respuesta');
@@ -106,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function addUser(userData) {
         try {
-            const response = await fetchWithAuth('http://localhost:3000/api/registerallkindausers', {
+            const response = await fetchWithAuth(`http://${SERVER_IP}:3000/api/registerallkindausers`, {
                 method: 'POST',
                 body: JSON.stringify(userData)
             });
@@ -127,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function updateUser(userId, userData, userType) {
         const endpoint = userType === 'profesor' ? 
-            `http://localhost:3000/api/professors/edit/${userId}` : 
-            `http://localhost:3000/api/students/edit/${userId}`;
+            `http://${SERVER_IP}:3000/api/professors/edit/${userId}` : 
+            `http://${SERVER_IP}:3000/api/students/edit/${userId}`;
 
         try {
             const response = await fetchWithAuth(endpoint, {
@@ -152,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function deleteUser(userId, userType) {
         const endpoint = userType === 'profesor' ? 
-            `http://localhost:3000/api/professors/delete/${userId}` : 
-            `http://localhost:3000/api/students/delete/${userId}`;
+            `http://${SERVER_IP}:3000/api/professors/delete/${userId}` : 
+            `http://${SERVER_IP}:3000/api/students/delete/${userId}`;
 
         try {
             const response = await fetchWithAuth(endpoint, {
@@ -176,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadTotalUsers() {
         try {
-            const response = await fetchWithAuth('http://localhost:3000/api/total-users');
+            const response = await fetchWithAuth(`http://${SERVER_IP}:3000/api/total-users`);
             if (response && response.ok) {
                 const data = await response.json();
                 console.log('Totales:', data); // Para debuggear
