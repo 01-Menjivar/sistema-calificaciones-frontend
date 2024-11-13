@@ -1,4 +1,5 @@
-const { SERVER_IP } = require('../utils/Config');
+const SERVER_IP = '192.168.1.1';  // o la IP que estés utilizando
+
 
 
 
