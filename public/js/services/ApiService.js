@@ -1,6 +1,7 @@
 
 
-import { SERVER_IP } from "../utils/Config.js"
+const { SERVER_IP } = require('../utils/Config');
+
 
 class ApiService {
     
