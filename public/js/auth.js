@@ -174,7 +174,7 @@ class Auth {
             this.showLoading();
             this.hideError(this.errorMessage);
 
-            const response = await fetch(`http://${SERVER_IP}/api/login`, {
+            const response = await fetch(`http://${SERVER_IP}:3000/api/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
