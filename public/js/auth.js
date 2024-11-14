@@ -1,8 +1,3 @@
-const SERVER_IP = '192.168.1.1';  // o la IP que estés utilizando
-
-
-
-
 class Auth {
     constructor() {
         this.form = document.getElementById('loginForm');
