@@ -1,5 +1,4 @@
 
-import { SERVER_IP } from "../utils/Config.js"
 
 
 document.addEventListener('DOMContentLoaded', () => {
