@@ -1,11 +1,10 @@
 
 
-const { SERVER_IP } = require('../utils/Config');
 
 
 class ApiService {
     
-    constructor(baseUrl = `http://${SERVER_IP}:3000`) {
+    constructor(baseUrl = "http://192.168.1.19:3000") {
         this.baseUrl = baseUrl;
         this.token = localStorage.getItem('token');
     }
@@ -131,4 +130,3 @@ class ApiService {
 
 }
 
-export default ApiService;
