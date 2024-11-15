@@ -76,7 +76,7 @@ class StudentDashboard {
 
     async loadGrades() {
         try {
-            const response = await this.api.fetchWithAuth(`/api/grades / student / ${ this.userInfo.id }`);
+            const response = await this.api.fetchWithAuth(`/api/grades/student/${ this.userInfo.id }`);
 
             if (!response || !response.ok) {
                 throw new Error('Error al cargar calificaciones');
