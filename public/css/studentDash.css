@@ -8,6 +8,56 @@
     --gray-dark: #343a40;
 }
 
+.logout {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.logout:hover {
+    opacity: 0.8;
+}
+
+.logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #000;
+    color: white;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.main-header.shifted {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.main-header h1 {
+    margin-left: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -30,7 +80,7 @@ body {
     background: white;
     border-radius: 10px;
     padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .average-section {
@@ -59,7 +109,7 @@ body {
     background: white;
     border-radius: 10px;
     padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .section-header {
@@ -90,7 +140,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #dee2e6;
@@ -132,7 +183,8 @@ td {
         padding: 1rem;
     }
 
-    th, td {
+    th,
+    td {
         padding: 0.75rem;
     }
 }

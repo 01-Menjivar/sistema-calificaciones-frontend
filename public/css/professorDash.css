@@ -23,9 +23,11 @@
     padding: 0 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
   }
   
   .main-header.shifted {
@@ -37,6 +39,25 @@
     margin-left: 20px;
     font-size: 1.5rem;
     font-weight: 500;
+  }
+
+  .logout {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  
+  .logout:hover {
+    opacity: 0.8;
+  }
+  
+  .logout img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
   }
   
   .menu-toggle {

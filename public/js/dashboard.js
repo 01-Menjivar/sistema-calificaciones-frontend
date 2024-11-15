@@ -22,30 +22,39 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentView = 'all';
 
     // Funciones de API
-    async function fetchWithAuth(url, options = {}) {
+
+    // Función de logout
+    async function handleLogout() {
         try {
-            const response = await fetch(url, {
-                ...options,
-                headers: {
-                    ...options.headers,
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
+            // Primero invalidamos el token en el servidor
+            const response = await fetchWithAuth(`http://${SERVER_IP}:3000/api/logout`, {
+                method: 'POST',
             });
 
-            if (response.status === 401) {
-                localStorage.removeItem('token');
-                sessionStorage.removeItem('userInfo');
-                window.location.href = '/login.html';
-                return null;
-            }
-
-            return response;
+            // Independientemente de la respuesta del servidor, limpiamos el almacenamiento local
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('userInfo');
+            
+            // Redirigir al login
+            window.location.href = '/src/views/login.html';
         } catch (error) {
-            console.error('Error en la petición:', error);
-            return null;
+            console.error('Error durante el logout:', error);
+            // En caso de error, aún así limpiamos y redirigimos
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('userInfo');
+            window.location.href = '/src/views/login.html';
         }
     }
+
+    // Setup logout button
+    const logoutButton = document.querySelector('.logout');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            handleLogout();
+        });
+    }
+
 
     async function fetchWithAuth(url, options = {}) {
         const token = localStorage.getItem('token');

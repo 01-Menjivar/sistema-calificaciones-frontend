@@ -5,6 +5,60 @@ class StudentDashboard {
         this.userInfo = JSON.parse(sessionStorage.getItem('userInfo') || '{}');
         this.grades = [];
         this.average = 0;
+        this.setupLogout();
+    }
+
+    setupLogout() {
+        const logoutButton = document.querySelector('.logout');
+        if (logoutButton) {
+            console.log('Configurando botón de logout');
+            logoutButton.addEventListener('click', async (e) => {
+                e.preventDefault();
+                await this.handleLogout();
+            });
+        } else {
+            console.warn('No se encontró el botón de logout en el DOM');
+        }
+    }
+
+    async handleLogout() {
+        console.log('Iniciando proceso de logout...');
+        try {
+            console.log('Estado antes del logout:', {
+                token: !!localStorage.getItem('token'),
+                userInfo: this.userInfo
+            });
+
+            // Intentar logout en el servidor
+            const response = await this.api.fetchWithAuth('/api/logout', {
+                method: 'POST'
+            });
+
+            console.log('Respuesta del servidor:', {
+                status: response?.status,
+                ok: response?.ok
+            });
+
+            // Limpiar almacenamiento local
+            console.log('Limpiando almacenamiento local...');
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('userInfo');
+
+            console.log('Estado después de limpiar:', {
+                token: localStorage.getItem('token'),
+                userInfo: sessionStorage.getItem('userInfo')
+            });
+
+            // Redirigir al login
+            window.location.href = '/src/views/login.html';
+        } catch (error) {
+            console.error('Error durante el logout:', error);
+
+            // En caso de error, limpiar de todos modos
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('userInfo');
+            window.location.href = '/src/views/login.html';
+        }
     }
 
     async init() {
@@ -14,7 +68,7 @@ class StudentDashboard {
 
     checkAuth() {
         if (!localStorage.getItem('token') || this.userInfo.rol !== 'estudiante') {
-            window.location.href = '/login.html';
+            window.location.href = '/src/views/login.html';
             return false;
         }
         return true;
@@ -22,7 +76,7 @@ class StudentDashboard {
 
     async loadGrades() {
         try {
-            const response = await this.api.fetchWithAuth(`/api/grades/student/${this.userInfo.id}`);
+            const response = await this.api.fetchWithAuth(`/api/grades / student / ${ this.userInfo.id }`);
 
             if (!response || !response.ok) {
                 throw new Error('Error al cargar calificaciones');
@@ -41,6 +95,8 @@ class StudentDashboard {
             UiManager.showNotification('Error al cargar calificaciones', 'error');
         }
     }
+
+
 
     formatGrade(grade) {
         if (grade === null || grade === undefined) return '-';
@@ -166,6 +222,8 @@ class StudentDashboard {
             averageElement.title = 'Promedio ponderado de todas las calificaciones';
         }
     }
+
+
 }
 
 // Inicializar el dashboard
